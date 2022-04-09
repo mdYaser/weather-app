@@ -57,6 +57,8 @@ const pressEle = document.querySelector(".pressure");
 const iconEle = document.querySelector(".temp-container i");
 const inputEle = document.querySelector(".search");
 const searchEle = document.querySelector(".input-container i");
+const creditsEle = document.querySelector(".credits");
+const userEle = document.querySelector(".user");
 const totalWidth = document.body.clientWidth;
 
 function showPosition(position) {
@@ -98,8 +100,12 @@ function getWeatherData(isPosition, data) {
 			)
 				.then((res) => res.json())
 				.then((res) => {
-					const imgLink = res.results[Math.floor(Math.random() * 11)].urls.raw;
+					const photo = res.results[Math.floor(Math.random() * 11)];
+					const imgLink = photo.urls.raw;
 					containerEle.style.background = `url("${imgLink}&w=${totalWidth}")`;
+					userEle.setAttribute("href", photo.user.links.html);
+					userEle.innerText = photo.user.name;
+					creditsEle.style.visibility = "visible";
 				});
 		});
 }

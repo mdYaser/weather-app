@@ -31,6 +31,22 @@ body {
           justify-content: center;
 }
 
+.container .credits {
+  position: fixed;
+  right: 20px;
+  bottom: 10px;
+  visibility: hidden;
+}
+
+.container a {
+  font-weight: 500;
+  color: rgba(0, 0, 0, 0.7);
+}
+
+.container a:hover {
+  color: black;
+}
+
 .input-container {
   width: 100%;
   margin-bottom: 30px;
